@@ -13,7 +13,7 @@ then
 fi
 
 # compile the code into the bin folder, terminates if error occurred
-if ! javac -cp ../src -Xlint:none -d ../bin ../src/main/java/circus/*.java ../src/main/java/circus/stuff/*.java ../src/main/java/circus/animals/*.java
+if ! javac -cp ../src -Xlint:none -d ../bin ../src/main/java/circus/*.java ../src/main/java/circus/animal/*.java ../src/main/java/circus/stuff/*.java
 then
     echo "********** BUILD FAILURE **********"
     exit 1
@@ -23,7 +23,7 @@ fi
 java -classpath ../bin circus.Circus > ACTUAL.TXT
 
 # compare the output to the expected output
-diff ./ACTUAL.TXT ./EXPECTED.TXT
+diff ACTUAL.TXT EXPECTED.TXT
 if [ $? -eq 0 ]
 then
     echo "Test result: PASSED"

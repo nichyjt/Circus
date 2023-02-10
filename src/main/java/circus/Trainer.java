@@ -1,30 +1,26 @@
 package circus;
 
-import circus.animals.Animal;
-import circus.animals.Bird;
-import circus.animals.Duck;
-import circus.animals.Parrot;
+import circus.animal.Animal;
+import circus.animal.Bird;
+import circus.animal.Duck;
+import circus.animal.Parrot;
 
 public class Trainer {
     public static void main(String[] args) {
-        Duck duck = new Duck();
-        getToSpeak(duck);
+        Duck d = new Duck();
+        getToSpeak(d);
 
-        Bird bird = (Bird) duck;  // upcasting
-        getToSpeak(bird);
+        Bird b = (Bird) d;  // upcasting
+        getToSpeak(b);
 
-        Animal animal = (Animal) bird; // upcasting
-        getToSpeak(animal);
+        Animal a = (Animal) b; // upcasting
+        getToSpeak(a);
 
-        Duck duck2 = (Duck) animal; // downcasting
-        getToSpeak(duck2);
+        Duck d2 = (Duck) a; // downcasting
+        getToSpeak(d2);
 
         train(new Duck());
-        train(new Parrot());
-
-//        Animal animal2 = new Animal();
-//        Bird bird2 = new Bird();
-
+        // train(new animal.Parrot());
     }
 
     private static void getToSpeak(Animal animal) {
@@ -32,11 +28,9 @@ public class Trainer {
     }
 
     private static void train(Bird bird) {
-        if(bird instanceof Duck){
+        if (bird instanceof Duck) {
             Duck d = (Duck) bird;
             d.swim();
-        }else{
-            System.out.println("I am not a duck");
         }
     }
 }
